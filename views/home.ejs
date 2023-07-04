@@ -1,7 +1,19 @@
-
 <%- include("partials/header.ejs") -%>
 
-<h1>home</h1>
-<p>  <%= homeContent %> </p>
+<h1>Home</h1>
+<p>
+  Discover the latest blogs at Allmighty Journal. Engage with captivating
+  content, insightful perspectives, and valuable information. Stay informed and
+  inspired as you explore our carefully curated articles. Scroll down to dive
+  into a world of knowledge and entertainment.
+</p>
 
-<%- include("partials/footer.ejs") -%>
+<% allBlogs.forEach(blog => { %>
+<h2><%= blog.title %></h2>
+<p>
+  <%= blog.body.substring(0,250) %> <% if (blog.body.length > 250) { %>
+  <a href="/posts/:<%= blog.title %>">readmore</a>
+  <% } %>
+</p>
+
+<% }) %> <%- include("partials/footer.ejs") -%>
